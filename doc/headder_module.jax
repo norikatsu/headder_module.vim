@@ -1,0 +1,80 @@
+hedder_module.txt	ヘッダコメントを挿入します
+
+Version: 1.0
+Author : norikatsu <norikatsu@gmail.com>
+License: VIM LICENSE
+
+==============================================================================
+目次						*headder_module-contents*
+
+概要				|headder_module-introduction|
+インターフェース		|headder_module-interface|
+  コマンド			  |headder_module-commands|
+  関数				  |headder_module-functions|
+  キーマッピング		  |headder_module-key-mappings|
+カスタマイズ			|headder_module-customizing|
+更新履歴			|headder_module-changelog|
+
+
+
+==============================================================================
+概要						*headder_module-introduction*
+
+headder_module.vim はコメントヘッダを挿入するだけのモジュールです
+下記環境変数を設定しておいてください
+CAMPANY : 組織名
+AUTHOR_NAME : 作者名
+MAIL_ADD    : メールアドレス
+
+要件:
+- Vim 7.0 以降
+
+最新版:
+https://github.com/norikatsu/headder_module.vim.git
+
+
+==============================================================================
+インターフェース				*headder_module-interface*
+
+------------------------------------------------------------------------------
+コマンド					*headder_module-commands*
+
+:HeadderModuleInsert0				HeadderModuleInsert0:
+	ヘッダコメントを挿入します
+
+
+------------------------------------------------------------------------------
+関数						*headder_module-functions*
+
+headder_module#insert( mode )				headder_module#insert( mode )
+	|:HeadderModuleInsert0| の関数版です。
+        引数0でコメントアウトをダブルスラッシュとしてコメントヘッダを挿入しま
+        す
+
+------------------------------------------------------------------------------
+キーマッピング					*headder_module-key-mappings*
+
+<Plug>(headder_module_insert0)			*<Plug>(headder_module_wire)*
+	:HeadderModuleInsert0 を実行します。
+
+				      *g:headder_module_no_default_key_mappings*
+以下のキーマッピングは、既に定義されていたり
+g:headder_module_no_default_key_mappings に 1 が設定されていると定義されません。
+
+{lhs}			{rhs}
+--------		-----------------------------
+<Space>hh		<Plug>(headder_module_insert0)
+
+
+
+
+==============================================================================
+更新履歴					*headder_module-changelog*
+
+1.0	2015-01-12
+	- 初版。
+
+
+
+==============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
